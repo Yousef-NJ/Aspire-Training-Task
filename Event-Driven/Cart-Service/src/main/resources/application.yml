@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          auto-add-partitions: true
+      bindings:
+        cart-queue:
+          destination: cart-queue
+          group: group1
+        item-queue:
+          destination: item-events
+          group: group1
+        cart-events:
+          destination: cart-events
+          producer:
+            partition-count: 2

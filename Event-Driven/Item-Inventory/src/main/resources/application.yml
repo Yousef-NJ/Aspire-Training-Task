@@ -1,0 +1,25 @@
+server:
+  port: 1111
+  
+spring:
+  h2:
+    console:
+      enabled: true
+  cloud:
+    stream:
+      kafka:
+        binder:
+          auto-add-partition: true
+      bindings:
+        item-queue:
+          destination: item-queue
+          group: group1
+        item-events:
+          destination: item-events
+          producer:
+            partition-count: 2
+com:
+  trainin:
+    demo:
+      mysql:
+        enabled: true

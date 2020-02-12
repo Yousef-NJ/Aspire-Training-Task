@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: cart-service
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+
+server:
+  port: 3333
+
+com:
+  training:
+    exceptions:
+      NoHandlerFoundForCommandException:
+        code: 100
+        restErrorCode: 404
+        message:
+          AR: لا يوجد خادم لهذه المهمة
+          EN: No Command handler for this command
